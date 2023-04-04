@@ -1,5 +1,5 @@
 import tkinter as tk
-import PyPDF4
+import pypdf
 from PIL import Image, ImageTk
 from tkinter.filedialog import askopenfile
 
@@ -25,7 +25,7 @@ def open_file():
     browse_text.set("loading...")
     file = askopenfile(parent=root, mode='rb', title="Choose a file", filetypes=[("Pdf file", "*.pdf")])
     if file:
-        read_pdf = PyPDF4.PdfFileReader(file)
+        read_pdf = pypdf.PdfFileReader(file)
         page = read_pdf.getPage(0)
         page_content = page.extractText()
 
